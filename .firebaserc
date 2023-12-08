@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "qistore-c53f5"
-  }
+    "default": "qiapp-53696",
+    "firebase use --clear": "qiapp-53696"
+  },
+  "targets": {},
+  "etags": {}
 }

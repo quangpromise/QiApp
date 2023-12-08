@@ -4,6 +4,7 @@ import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../store/slice";
+import Image from "next/image";
 
 function CartItem(props ) {
     const { name, quantity, totalPrice, price, id, image } = props.item;
@@ -25,7 +26,7 @@ function CartItem(props ) {
     return (
         <div className="grid grid-cols-6 uppercase pt-8 text-center text-md py-4">
             <p>
-                <img src={image} alt="Image" className="w-20 " />
+                <img src={image} width={10} height={10} alt="Image" className="w-20 " />
             </p>
             <p className="font-bold text-sm">{name}</p>
             <p className="opacity-60">{formattedCurrency.format(price)} VND</p>
