@@ -19,7 +19,6 @@ function Cart() {
     const cart = useSelector(state => state.cart.items)
     const {show} = useSelector(state => state.ui)
     const { totalAmount } = useSelector(state => state.cart)
-    console.log(totalAmount, cart);
     //tao ham hien thi popup delete va lay id tu item muon delete
     const handleDeletePopup = (id) => {
         dispatch(setIdDelete(id))
