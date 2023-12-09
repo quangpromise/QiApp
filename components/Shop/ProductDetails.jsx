@@ -115,13 +115,13 @@ function ProductDetail() {
                             <p key={i}>{des}</p>
                         ))}</div>
                     </div>
-                    <div className=" flex flex-col gap-y-4 ">
+                    <div className=" flex flex-col gap-y-4 max-sm:px-2 ">
                         <h2 className="uppercase text-xl">Related Products</h2>
-                        <div className="flex flex-row gap-4">
+                        <div className="flex flex-row gap-4 max-sm:flex-col max-sm:px-20">
 
                             {/* render du lieu cac san pham co cung category */}
                             {relatedProduct.map(related => (
-                                <Link href={`/detail/${related._id.$oid}`} key={related._id.$oid} className="w-2/12 flex flex-col gap-4 text-center">
+                                <Link href={`/detail/${related._id.$oid}`} key={related._id.$oid} className="w-2/12 flex flex-col gap-4 text-center max-sm:w-full">
                                     <img className="hover:opacity-40 animate-wave-ping hover:scale-110" src={related.img1} alt='image' />
                                     <h2 className="text-md font-bold">{related.name}</h2>
                                     <p className="opacity-50">{formattedCurrency.format(related.price)} VND</p>

@@ -43,7 +43,7 @@ function Cart() {
                 <h1 className="uppercase text-2xl max-lg:px-4">Shopping Cart</h1>
                 <div className="flex flex-row gap-6 max-md:flex-col max-lg:px-4">
                     <div className="w-2/3 max-md:w-full">
-                        <div className="grid grid-cols-6 uppercase  bg-gray-100 text-center text-md py-4">
+                        <div className="max-sm:text-xs grid grid-cols-6 uppercase  bg-gray-100 text-center text-md py-4">
                             <h2>Image</h2>
                             <h2>Product</h2>
                             <h2>Price</h2>
