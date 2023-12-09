@@ -1,3 +1,5 @@
+
+//tao component cho Footer
 function Footer() {
     return (
         <div className="bg-black text-white italic mt-4">

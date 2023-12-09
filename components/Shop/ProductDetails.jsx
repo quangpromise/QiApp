@@ -10,25 +10,41 @@ import { cartAction } from "../store/slice";
 
 
 function ProductDetail() {
+    //dung dispatch fetch du lieu
     const dispatch = useDispatch()
+    //dung rourer de lay du lieu query
     const router = useRouter()
     const { productId } = router.query
+
+    //select du lieu product tu store
     const { products } = useSelector(state => state.products)
+
+    //dung state va ref de set so luong item muon order
     const [enteredAmount, setEnteredAmount] = useState(1)
     const amountRef = useRef()
 
+    //dung effect de fetch du lieu tu API doi chieu voi ID tren router
     useEffect(() => {
         dispatch(fetchProduct())
-    },[dispatch])
+    }, [dispatch])
+    
+    //find item da chon de render item do ra man hinh detail
     const productDetail = products.find(product => product._id.$oid === productId)
+
+    //filter ra danh sach cac item con lai co cung category va khong cung ID
     const relatedProduct = products.filter(product => product.category === productDetail.category && product._id.$oid !== productId)
+    
+    //tao ham onchage amount
     const onchangeAmountHandle = () => {
         setEnteredAmount(amountRef)
     }
 
+    //tao ham tang item
     const handleIncrement = () => {
         setEnteredAmount(prevAmount => prevAmount+ 1)
     }
+
+    //tao ham giam item
     const handleDecrement = () => {
         if (enteredAmount < 2) {
             return;
@@ -36,6 +52,8 @@ function ProductDetail() {
             setEnteredAmount(prevAmount => prevAmount - 1)
         }
     }
+
+    //tao ham add to cart vaf dispatch addtocart function tu store, lay cac du lieu tu item vuachon
     const handleAddToCart = () => {
         dispatch(cartAction.addToCart({
             id: productDetail._id.$oid,
@@ -48,18 +66,19 @@ function ProductDetail() {
     }
     return (
         <>
+            {/* tao man hinh detail */}
             {productDetail &&
                 <div className="w-2/3 mx-auto pt-32 pb-10 grid gap-10 max-lg:w-full">
                     <div className="flex gap-6 max-lg:flex-col ">
                         <div className="flex w-1/2 max-lg:w-full max-lg:px-4">
                             <div className="w-1/5 animate-wave-ping">
-                                <img src={productDetail.img2} alt='image'/>
-                                <img src={productDetail.img3} alt='image'/>
-                                <img src={productDetail.img4} alt='image'/>
-                                <img src={productDetail.img1} alt='image'/>
+                                <img src={productDetail.img2} alt='image' />
+                                <img src={productDetail.img3} alt='image' />
+                                <img src={productDetail.img4} alt='image' />
+                                <img src={productDetail.img1} alt='image' />
                             </div>
                             <div className="w-4/5 animate-wave-ping">
-                                <img src={productDetail.img1} alt='image'/>
+                                <img src={productDetail.img1} alt='image' />
                             </div>
                         </div>
                         <div className="w-1/2 flex flex-col gap-y-6 max-lg:w-full max-lg:px-4 ">
@@ -93,26 +112,28 @@ function ProductDetail() {
                         <h1 className="uppercase text-white bg-gray-700 text-center py-2 w-1/3"> Description</h1>
                         <h2 className="uppercase text-xl">Product descripton</h2>
                         <div className="opacity-60 max-md:text-sm">{productDetail.long_desc.split("\n").map((des, i) => (
-<p key={i}>{des}</p>
-))}</div>
+                            <p key={i}>{des}</p>
+                        ))}</div>
                     </div>
                     <div className=" flex flex-col gap-y-4 ">
                         <h2 className="uppercase text-xl">Related Products</h2>
                         <div className="flex flex-row gap-4">
-                        {relatedProduct.map(related => (
-                            <Link href={`/detail/${related._id.$oid}`} key={related._id.$oid} className="w-2/12 flex flex-col gap-4 text-center">
-                                <img className="hover:opacity-40 animate-wave-ping hover:scale-110" src={related.img1} alt='image'/>
-                                <h2 className="text-md font-bold">{related.name}</h2>
-                                <p className="opacity-50">{formattedCurrency.format(related.price)} VND</p>
-                            </Link>
-                        ))}
+
+                            {/* render du lieu cac san pham co cung category */}
+                            {relatedProduct.map(related => (
+                                <Link href={`/detail/${related._id.$oid}`} key={related._id.$oid} className="w-2/12 flex flex-col gap-4 text-center">
+                                    <img className="hover:opacity-40 animate-wave-ping hover:scale-110" src={related.img1} alt='image' />
+                                    <h2 className="text-md font-bold">{related.name}</h2>
+                                    <p className="opacity-50">{formattedCurrency.format(related.price)} VND</p>
+                                </Link>
+                            ))}
                         </div>
                     </div>
                 </div>
             }
         </>
     );
-};
+}
 
 
 

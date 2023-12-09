@@ -6,9 +6,11 @@ import store from "@/components/store";
 import FacebookMsg from "@/components/FacebookMsg/FacebookMsg";
 import { useState, useEffect } from "react";
 
+//tao app de render tat ca page
 function MyApp({ Component, pageProps }) {
-    const [showChild, setShowChild] = useState(false);
 
+    //tao state showchild de xu ly loi neu type of window undefined
+const [showChild, setShowChild] = useState(false);
 
   useEffect(() => {
       setShowChild(true);

@@ -16,25 +16,33 @@ import Link from 'next/link'
 
 
 function HomeProductList() {
+    //dung selector lay trang thai show va products tu store
     const { show } = useSelector(state => state.ui)
     const { products } = useSelector(state => state.products)
+
+    //dung dispatch de lay du lieu fetch tu store
     const dispatch = useDispatch();
 
+    //dung effect de action dispatch
     useEffect(() => {
         dispatch(fetchProduct());
     }, [dispatch])
     
+
+    //tao ham hien thi detailpop up , dung dispatch lay product da chon
     const handleDetailPopup = (product) => {
         dispatch(setDetailPopup(product))
         dispatch(UIAction.showPopup());
     };
 
+    //tao ham close popup
     const handleClosePopup = () => {
         dispatch(UIAction.hidePopup())
     }
 
     return (
         <>
+            {/* neu sho thi hien thi popup va truyen prop vao pop up */}
         {show && <ProductPopup onClose={handleClosePopup} />}
         <div className="mx-auto pt-24 grid grid-flow-row gap-10 w-2/3 max-md:w-full max-md:text-xs max-lg:w-full">
                 <div className='z-0'>
@@ -74,10 +82,12 @@ function HomeProductList() {
                         <p className="text-2xl max-md:text-md">top trending products</p>
                     </div>
                     <div className='grid grid-cols-4 gap-4 mb-6 max-md:grid max-md:grid-cols-2'>
+                        {/* lay du lieu product de hien thi danh sach san pham  */}
                         {products.map((product) => (
                             <div className='grid gap-y-2' key={product._id.$oid}>
                                 <p>
-                                <img alt='Image' className='hover:opacity-40  hover:scale-110 cursor-pointer' src={product.img1} onClick={() => handleDetailPopup(product)}/>
+                                    <img alt='Image' className='hover:opacity-40  hover:scale-110 cursor-pointer'
+                                        src={product.img1} onClick={() => handleDetailPopup(product)} />
                                 </p>
                                 <p className='text-center font-bold text-sm mt-2'>{product.name}</p>
                                 <p className='text-center opacity-60 -z-10 text-sm'>{formattedCurrency.format(product.price)} VND</p>

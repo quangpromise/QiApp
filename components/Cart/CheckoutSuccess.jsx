@@ -1,5 +1,6 @@
 function CheckoutSuccess() {
     return (
+        //tao man hinh check out thanh cong
         <div className="pt-40 mb-40">
             <div className="mx-auto flex flex-col gap-4  w-2/3 p-10 border-2 border-gray-400 rounded-3xl">
                 <h1 className="text-green-700 font-bold text-xl">Thank you for your order!</h1>

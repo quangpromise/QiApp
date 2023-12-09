@@ -1,5 +1,6 @@
 function SignInSuccess() {
     return (
+        // tao man hinh thong bao thanh cong khi dang nhap
         <div className="pt-36 mb-40">
             <div className="max-md:w-2/3 mx-auto flex flex-col gap-4  w-1/3 p-10 border-2 border-gray-400 rounded-3xl">
                 <h1 className="text-green-700 font-bold text-xl">Login is successfully</h1>

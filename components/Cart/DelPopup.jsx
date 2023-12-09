@@ -3,18 +3,19 @@ import { cartAction } from "../store/slice";
 import { UIAction } from "../store/ui";
 
 function DelPopup({ isClose }) {
-
+    //dung dispatch de hien thi pop up va delete action
     const dispatch = useDispatch()
+    //lay id da chon tu store
     const { id } = useSelector(state => state.id)
 
-
+    //tao ham delete de xoa item
     const handleDeleteItem = () => {
         dispatch(cartAction.deleteItem(id))
         dispatch(UIAction.hidePopup())
     }
     return (
     <>
-            
+            {/* tao delpop up */}
             <div className="bg-black w-full h-full z-20 fixed opacity-50">
         </div>
             <div className="z-30  max-lg:-left-32 max-lg:w-2/3 max-md:w-2/3 max-md:-left-44 fixed w-2/5 top-32 flex-col left-40  ml-64 p-10 bg-white rounded border-2 border-gray-500">

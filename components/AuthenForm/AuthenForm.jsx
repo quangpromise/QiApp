@@ -7,25 +7,36 @@ import { useRouter } from "next/router";
 import SignUpNofi from "./SignUpNofi";
 import SignInSuccess from "./SigninSuccess";
 
-
+//tao component Authen
 function AuthenForm() {
+    //tao hook state hien thong  bao signup/ login thanh cong
     const [signupSuccess, setSignupSuccess] = useState(false)
     const [signInSuccess, setSignInSuccess] = useState(false)
+
+    //dung search Param de search mode login/ singup
     const searchParams = useSearchParams()
+
+    //set trang thai la login hay chua de render form input
     const isLogin = searchParams.get('mode') === 'login';
 
+    //useRoute de dieu huong
     const router = useRouter()
     
+
+    //tao cac truong input du lieu
     const [enteredFullName, setEnteredFullname] = useState('') 
     const [enteredEmail, setEnteredEmail] = useState('') 
     const [enteredPassword, setEnteredPassword] = useState('') 
     const [enteredPhone, setEnteredPhone] = useState('') 
 
+    //dung ref lang nghe su kien
     const fullnameRef = useRef();
     const emailRef = useRef();
     const passwordRef = useRef();
     const phoneRef = useRef()
     
+
+    //tao cac ham onChange nhan du lieu thay doi
     const handleOnchangeFullname = () => {
         setEnteredFullname(fullnameRef.current.value)
     }
@@ -43,7 +54,7 @@ function AuthenForm() {
     }
 
     
-    
+    //tao hook state de set thong bao loi~
     const [fullnameInValid, setFullNameInValid] = useState(false)
     const [emailInValid , setEmailInValid] = useState(false)
     const [passwordInValid , setPasswordInValid] = useState(false)
@@ -51,13 +62,16 @@ function AuthenForm() {
     const [userIsExist, setUserIsExist] = useState(false)
     const [accountInValid, setAccountInValid] = useState(false)
     
-    
+    //tao userArr lay du lieu nguoi dung tu` localstorage
     const userArr = getFromStorage('userArr') ? getFromStorage('userArr') : [];
     
+
+    //tao function dang ky user
     const handleSignUp = (e) => {
         e.preventDefault()
         let isValidate = true;
         
+        //tao validate du lieu neu nguoi dung nhap khong dung
         if (!isNotEmpty(enteredFullName)) {
             setFullNameInValid(true);
             isValidate = false;
@@ -98,6 +112,8 @@ function AuthenForm() {
             }
         })
        
+
+        //validate hop le neu nguoi dung nhap dung thong tin
         if (isValidate) {
             userArr.push({
                 fullname: enteredFullName,
@@ -106,13 +122,9 @@ function AuthenForm() {
                 phone: enteredPhone
             })
             saveToStorage('userArr', userArr)
-            
-
             setSignupSuccess(true)
-
             setTimeout(() => {
                 setSignupSuccess(false)
-
                 e.target.reset()
                 router.push('/auth?mode=login')
                 setUserIsExist(false)
@@ -121,12 +133,14 @@ function AuthenForm() {
 
         }
     };
-
+    //tao ham xu ly dang nhap
     const handleSignIn = (e) => {
         e.preventDefault();
         const enteredEmail = emailRef.current.value;
         const enteredPassword = passwordRef.current.value;
         let isValidate = true
+
+        //validate du lieu neu nguoi` dung nhap thong tin khong chinh xac
         if (!isNotEmpty(enteredEmail) || !isEmail(enteredEmail)) {
             setEmailInValid(true);
             isValidate = false;
@@ -143,8 +157,8 @@ function AuthenForm() {
             setPasswordInValid(false)
         }
 
+        //xu ly du lieu sau khi thong tin hop le
         if (isValidate) {
-            
 
             const user = userArr.find(item => item.email === enteredEmail && item.password === enteredPassword)
             if (!user) {
@@ -165,6 +179,7 @@ function AuthenForm() {
         }
     }
 
+    //ham` swtich giua login va sign up
     const switchToSignIn = () => {
         router.push('/auth?mode=login')
         setEnteredEmail('');
@@ -173,6 +188,7 @@ function AuthenForm() {
         setPasswordInValid(false)
         setUserIsExist(false)
     }
+    //ham` swtich giua login va sign up
 
     const switchToSignUp = () => {
         router.push('/auth?mode=signup')
@@ -186,14 +202,13 @@ function AuthenForm() {
         setPhoneInValid(false)
         setAccountInValid(false)
     }
-    
     return (
-
         <>
-       
+            
+            {/* hien thi man hinh thanh cong khi dang nhap hoac dang ky  */}
             {signupSuccess && <SignUpNofi />}
             {signInSuccess && <SignInSuccess />}
-            
+            {/* neu chua dang nhap hoac dang ky thi hien thi form  */}
             {!signInSuccess && !signupSuccess && <div className="max-md:h-screen text-gray-500 relative w-2/3 mx-auto max-lg:w-full">
                 <div className="">
                     <Image draggable='false' className="" src={banner} alt="banner" />
@@ -201,6 +216,7 @@ function AuthenForm() {
                     <Image draggable='false' className="" src={banner} alt="banner" />
                     
                 </div>
+                {/* tao form hien thi giua login va sign up */}
                 <form onSubmit={isLogin ? handleSignIn : handleSignUp} className=" max-lg:left-40 max-md:text-sm max-md:left-16 max-md:top-20 max-md:w-3/4 shadow-lg shadow-gray-500/50 left-60  p-8 gap-4 absolute w-2/4 top-32 text-black text-xl grid grid-flow-row bg-white rounded">
                     <h1 className="text-4xl  text-center mb-8">{isLogin ? 'Sign In' : 'Sign Up'}</h1>
                     {accountInValid && <p className="text-red-500 text-center">Email/password is wrong</p>}

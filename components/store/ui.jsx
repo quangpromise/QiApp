@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+//tao ui slice de set trang thai show/hide popup
 export const UISlice = createSlice({
     name: 'ui',
     initialState: {

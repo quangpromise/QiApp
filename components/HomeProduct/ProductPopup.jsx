@@ -3,10 +3,14 @@ import { formattedCurrency } from "../ultis/formattedCurrency";
 import { FaCartArrowDown } from "react-icons/fa";
 import { IoIosClose } from "react-icons/io";
 import Link from "next/link";
-function ProductPopup({onClose}) {
+
+//tao component product popup
+function ProductPopup({ onClose }) {
+    //dung selector de lay du lieu product da chon trong popup
     const { detailPopup } = useSelector(state => state.detailPopup)
     return (
         <>
+            {/* tao man hinh popup */}
         <div className="fixed w-full h-full z-40 bg-black bg-opacity-50" onClick={onClose}>
         </div>
             <div className="max-lg:left-28 max-lg:grid max-lg:grid-cols-1 max-md:w-3/4 max-md:top-20 max-md:left-10 max-md:p-1 max-md:grid max-md:grid-cols-1 z-50  w-2/3 bg-white top-36 left-60 fixed grid grid-cols-2 gap-5 p-10">

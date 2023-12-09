@@ -1,3 +1,5 @@
+//export cac kieu validate dung` de validate du lieu
+
 export function isEmail(value) {
     return value.includes('@')
 }

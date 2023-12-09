@@ -1,5 +1,6 @@
 import { formattedCurrency } from "../ultis/formattedCurrency";
 function CheckoutItem(props) {
+    //lay props cac item da chon de check out
     const { name, price, quantity } = props.item
     return (
         <>

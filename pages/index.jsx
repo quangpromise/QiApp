@@ -1,9 +1,7 @@
 import Head from "next/head";
 import HomeProductList from "@/components/HomeProduct/HomeProductList";
 
-
-
-
+//tao home page
 function HomePage() {
     return (
     <>

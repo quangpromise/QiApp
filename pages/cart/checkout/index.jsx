@@ -1,6 +1,7 @@
 import Checkout from "@/components/Cart/Checkout";
 import Head from "next/head";
 
+//tao page check out
 function CheckOutPage() {
     return (
         <>

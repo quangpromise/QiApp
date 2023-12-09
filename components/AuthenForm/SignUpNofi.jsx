@@ -1,5 +1,6 @@
 function SignUpNofi() {
     return (
+        // tao man hinh thong bao thanh cong khi dang ky 
         <div className="pt-36 mb-40">
             <div className="mx-auto flex flex-col gap-4  w-2/3 p-10 border-2 border-gray-400 rounded-3xl">
                 <h1 className="text-green-700 font-bold text-xl">Congratulation!</h1>

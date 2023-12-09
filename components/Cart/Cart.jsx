@@ -12,21 +12,28 @@ import { formattedCurrency } from "../ultis/formattedCurrency";
 
 
 function Cart() {
+    //dung dispatch de lay trang thai hien thi pop-up xac nhan xoa san pham
     const dispatch = useDispatch()
+
+    //dung selecter de lay du lieu cart / show/total amount tu store
     const cart = useSelector(state => state.cart.items)
     const {show} = useSelector(state => state.ui)
     const { totalAmount } = useSelector(state => state.cart)
+    console.log(totalAmount, cart);
+    //tao ham hien thi popup delete va lay id tu item muon delete
     const handleDeletePopup = (id) => {
         dispatch(setIdDelete(id))
         dispatch(UIAction.showPopup())
     }
 
+    //tao ham close delete popup
     const handleClosePopup = () => {
         dispatch(UIAction.hidePopup());
     }
 
     return (
         <>
+            {/* neu show thi hien thi delete popup va truyen` prop xu ly close popup */}
         {show && <DelPopup isClose={handleClosePopup}  />}
         <div className="w-2/3 mx-auto grid grid-flow-row gap-6 max-lg:w-full">
                 <div className="bg-gray-100 px-20 flex flex-row justify-between pt-28 pb-16 uppercase">
@@ -45,30 +52,36 @@ function Cart() {
                             <h2>Total</h2>
                             <h2>Remove</h2>
                         </div>
-                        
+                        {/* //neu co cart dc chon thi render du lieu  */}
                         {cart && cart.length > 0? 
                             cart.map(item => (
-                                <CartItem isOpen={handleDeletePopup} item={{id:item.id, name:item.name ,quantity:item.quantity ,totalPrice:item.totalPrice,  price:item.price, image:item.image }} key={item.id}>
-  
+                                <CartItem isOpen={handleDeletePopup}
+                                    item={{
+                                        id: item.id, name: item.name,
+                                        quantity: item.quantity, totalPrice: item.totalPrice, price: item.price, image: item.image
+                                    }} key={item.id}>
                                 </CartItem>
                             ))
                             :
-                            (<div className="text-center text-red-600 py-6">No Found Items!</div>)
+                            (<div className="text-center text-red-600 py-6">Item not found!</div>)
+                            // khong co thi hien thi item not found
+                            }
                             
-                        }
-                        
+                    {/* //hien thi cac nut check out hoac order continue */}
                         <div className="bg-gray-100 flex justify-between p-4">
                             <Link href='/shop' className="p-4 cursor-pointer ">
-                                <button className="flex leading-4 gap-3 mx-auto hover:text-orange-500"><FaLongArrowAltLeft/><span className=" text-gray-700  hover:text-orange-500">Continue shopping</span></button>
+                                    <button className="flex leading-4 gap-3 mx-auto hover:text-orange-500">
+                                        <FaLongArrowAltLeft /><span className=" text-gray-700  hover:text-orange-500">Continue shopping</span>
+                                    </button>
                                 </Link>
+                                {/* neu tong tien lon hon 0 thi hien thi nut check out con khong thi an? */}
                                 {totalAmount > 0 && 
-                            
                             <Link href='/cart/checkout' className="p-3 cursor-pointer border-2 border-gray-700">
                                 <button className="flex leading-4 gap-3 mx-auto  hover:text-orange-500"><span className=" text-gray-700  hover:text-orange-500">Proceed to check out</span><FaLongArrowAltRight/></button>
                             </Link>
                             }
                         </div>
-                     
+                     {/* hien thi du~ lieu gia tien cac item da chon  */}
                     </div>
                     <div className=" bg-gray-100 p-10 w-1/3 h-96 max-md:w-full">
                         <h2 className="uppercase text-2xl mb-4">Cart Total</h2>

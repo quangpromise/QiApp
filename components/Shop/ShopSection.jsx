@@ -8,37 +8,38 @@ import { MdKeyboardDoubleArrowRight } from "react-icons/md";
 import Link from "next/link";
 
 function ShopSection() {
-    const [keyword, setKeyword] = useState(undefined)
-    const keywordRef = useRef()
+    // tao cac trang thai category, neu nguoi dung click cac muc thi danh sach cac category hien thi
+    // con khong thi hien thi tat ca product
     const [showCategory, setShowCategory] = useState(false)
+
+    //tao bien category rong, khi click vao category bao thi set category do
     const [category, setCategory] = useState([])
+
+    //lay du lieu products tu store de hien thi tat ca store tai shop
     const { products } = useSelector(state => state.products)
+
+    //filter cac product co cung category ra 1 list
     const iphoneList = products.filter(product => product = product.category === 'iphone')
     const ipadList = products.filter(product => product = product.category === 'ipad')
     const airpodList = products.filter(product => product = product.category === 'airpod')
     const watchList = products.filter(product => product = product.category === 'watch')
 
+    // dung dispatch de fetch products
     const dispatch = useDispatch();
 
     useEffect(() => {
         dispatch(fetchProduct())
-    },[dispatch])
+    }, [dispatch])
+    
+    //tao ham select category
     const handleCategory = (category) => {
         setCategory(category)
         setShowCategory(true)
     }
 
- 
-    function handleKeyword() {
-        setKeyword(keywordRef.current.value)
-    }
- 
-    
-    const searchKeyword = products.filter(product => product.name.toLowerCase().includes(keyword))
-
-
     return (
         <>
+            {/* tao shop screen */}
             <div className="w-2/3 mx-auto grid grid-flow-row gap-6 max-lg:w-full">
                 <div className="bg-gray-100 px-20 flex flex-row justify-between pt-28 pb-16 uppercase">
                     <p className="text-4xl">Shop</p>
@@ -73,7 +74,7 @@ function ShopSection() {
                     </div>
                     <div className="w-3/4">
                         <div className="flex justify-between">
-                            <input ref={keywordRef} onChange={handleKeyword} placeholder="Enter Search Here!" className="border-2 border-gray-400 rounded w-2/6 pl-4 py-2 max-md:w-1/2" />
+                            <input  placeholder="Enter Search Here!" className="border-2 border-gray-400 rounded w-2/6 pl-4 py-2 max-md:w-1/2" />
                             <select className="border-2 border-gray-500 max-md:text-sm">
                                 <option className="px-2">
                                     Defaul sorting
@@ -83,15 +84,7 @@ function ShopSection() {
 
                         <div
                             className="grid grid-cols-3 p-4 text-center gap-y-4 max-lg:grid-cols-2">
-
-                            {/* {searchKeyword.length > 0 && searchKeyword !== undefined ? searchKeyword.map(product => (
-                                <Link href={`/detail/${product._id.$oid}`}
-                                    key={product._id.$oid} className="grid grid-flow-row gap-2 ani">
-                                    <img src={product.img1} className="hover:opacity-40  hover:scale-110 cursor-pointer animate-wave-ping" />
-                                    <h1 className="text-md px-4 font-bold">{product.name}</h1>
-                                    <p className="text-md opacity-50">{formattedCurrency.format(product.price)} VND</p>
-                                </Link>))
-                            : */}
+                            {/* neu nguoi dung click vao category thi render category, con khong thi khi vao shop se render products */}
 
                             {showCategory ? category.map(product => (
                                 <Link href={`/detail/${product._id.$oid}`}
