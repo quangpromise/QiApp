@@ -40,41 +40,45 @@ function ShopSection() {
     return (
         <>
             {/* tao shop screen */}
-            <div className="w-2/3 mx-auto grid grid-flow-row gap-6 max-lg:w-full">
-                <div className="bg-gray-100 px-20 flex flex-row justify-between pt-28 pb-16 uppercase">
+            <div className=" w-2/3 mx-auto grid grid-flow-row gap-6 max-lg:w-full">
+                <div className="max-sm:py-16 max-sm:pb-10 bg-gray-100 px-20 flex flex-row justify-between pt-28 pb-16 uppercase">
                     <p className="text-4xl">Shop</p>
                     <p className="text-xl opacity-50">Shop</p>
                 </div>
-                <div className="flex flex-row gap-4">
-                    <div className="w-1/4">
-                        <h1
-                            className="text-2xl uppercase pb-4 max-md:font-bold max-md:text-sm">Categories</h1>
-                        <div>
-                            <h1 className="max-md:text-sm uppercase bg-black text-xl text-white py-2 px-4">Apple</h1>
+                <div className="flex flex-row gap-4 max-sm:flex-col">
+                    <div className="w-1/4 max-sm:w-full max">
+                        <h1 className="text-2xl uppercase pb-4 max-md:font-bold max-md:text-sm max-sm:text-center">Categories</h1>
+                        <div className="max-sm:flex max-sm:justify-between">
+                            <h1 className="max-md:text-sm uppercase max-sm:h-fit bg-black text-xl text-white py-2 px-4">Apple</h1>
                             <CategoryItem handleCategory={handleCategory} isActive='all' nameCategory='All' productList={products}></CategoryItem>
-                            <div className="grid grid-flow-row">
-                                <h1 className="max-md:text-sm uppercase text-xl bg-gray-100 py-2 px-4">Iphone & Mac</h1>
-                                <CategoryItem handleCategory={handleCategory} isActive='iphone' nameCategory='Iphone' productList={iphoneList} />
-                                <CategoryItem handleCategory={handleCategory} isActive='ipad' nameCategory='Ipad' productList={ipadList} />
-            
-                                <CategoryItem handleCategory={handleCategory} isActive='macbook' nameCategory='Macbook' productList={[]} />
+                            <div className="grid grid-flow-row group relative">
+                                <h1 className="max-md:text-sm uppercase text-xl bg-gray-100 py-2 px-4 max-sm:h-fit">Iphone & Mac</h1>
+                                <div className="max-sm:hidden max-sm:group-hover:block">
+                                    <CategoryItem handleCategory={handleCategory} isActive='iphone' nameCategory='Iphone' productList={iphoneList} />
+                                    <CategoryItem handleCategory={handleCategory} isActive='ipad' nameCategory='Ipad' productList={ipadList} />
+                                    <CategoryItem handleCategory={handleCategory} isActive='macbook' nameCategory='Macbook' productList={[]} />
+                                </div>
                             </div>
-                            <div className="grid grid-flow-row">
-                                <h1 className="max-md:text-sm uppercase text-xl bg-gray-100 py-2 px-4">Wireless</h1>
-                                <CategoryItem handleCategory={handleCategory} isActive='airpod' nameCategory='Airpod' productList={airpodList} />
-                                <CategoryItem handleCategory={handleCategory} isActive='watch' nameCategory='Watch' productList={watchList} />
+                            <div className="grid grid-flow-row group relative">
+                                <h1 className="max-md:text-sm uppercase text-xl  max-sm:h-fit bg-gray-100 py-2 px-4 ">Wireless</h1>
+                                <div className="max-sm:hidden max-sm:group-hover:block">
+                                    <CategoryItem handleCategory={handleCategory} isActive='airpod' nameCategory='Airpod' productList={airpodList} />
+                                    <CategoryItem handleCategory={handleCategory} isActive='watch' nameCategory='Watch' productList={watchList} />
+                                </div>
                             </div>
-                            <div className="grid grid-flow-row">
-                                <h1 className="max-md:text-sm uppercase text-xl bg-gray-100 py-2 px-4">Others</h1>
-                                <CategoryItem handleCategory={handleCategory} isActive='mouse' nameCategory='Mouse' productList={[]} />
-                                <CategoryItem handleCategory={handleCategory} isActive='keyboard' nameCategory='Keyboard' productList={[]} />
-                                <CategoryItem handleCategory={handleCategory} isActive='other' nameCategory='Other' productList={[]} />
+                            <div className="grid grid-flow-row group relative">
+                                <h1 className="max-md:text-sm uppercase text-xl max-sm:h-fit bg-gray-100 py-2 px-4">Others</h1>
+                                <div className="max-sm:hidden max-sm:group-hover:block">
+                                    <CategoryItem handleCategory={handleCategory} isActive='mouse' nameCategory='Mouse' productList={[]} />
+                                    <CategoryItem handleCategory={handleCategory} isActive='keyboard' nameCategory='Keyboard' productList={[]} />
+                                    <CategoryItem handleCategory={handleCategory} isActive='other' nameCategory='Other' productList={[]} />
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div className="w-3/4">
+                    <div className="w-3/4 max-sm:w-full">
                         <div className="flex justify-between">
-                            <input  placeholder="Enter Search Here!" className="border-2 border-gray-400 rounded w-2/6 pl-4 py-2 max-md:w-1/2" />
+                            <input placeholder="Enter Search Here!" className="border-2 border-gray-400 rounded w-2/6 pl-4 py-2 max-md:w-1/2" />
                             <select className="border-2 border-gray-500 max-md:text-sm">
                                 <option className="px-2">
                                     Defaul sorting
@@ -89,19 +93,19 @@ function ShopSection() {
                             {showCategory ? category.map(product => (
                                 <Link href={`/detail/${product._id.$oid}`}
                                     key={product._id.$oid} className="grid grid-flow-row gap-2 ani">
-                                    <img src={product.img1} className="hover:opacity-40  hover:scale-110 cursor-pointer animate-wave-ping" alt='image'/>
+                                    <img src={product.img1} className="hover:opacity-40  hover:scale-110 cursor-pointer animate-wave-ping" alt='image' />
                                     <h1 className="text-md px-4 font-bold">{product.name}</h1>
                                     <p className="text-md opacity-50">{formattedCurrency.format(product.price)} VND</p>
                                 </Link>
                             )) :
-                            products.map(product => (
-                            <Link href={`/detail/${product._id.$oid}`}
-                                key={product._id.$oid} className="grid grid-flow-row gap-2 ani">
-                                <img src={product.img1} className="hover:opacity-40  hover:scale-110 cursor-pointer animate-wave-ping" alt='image'/>
-                                <h1 className="text-md px-4 font-bold">{product.name}</h1>
-                                <p className="text-md opacity-50">{formattedCurrency.format(product.price)} VND</p>
-                            </Link>
-                            ))}
+                                products.map(product => (
+                                    <Link href={`/detail/${product._id.$oid}`}
+                                        key={product._id.$oid} className="grid grid-flow-row gap-2 ani">
+                                        <img src={product.img1} className="hover:opacity-40  hover:scale-110 cursor-pointer animate-wave-ping" alt='image' />
+                                        <h1 className="text-md px-4 font-bold">{product.name}</h1>
+                                        <p className="text-md opacity-50">{formattedCurrency.format(product.price)} VND</p>
+                                    </Link>
+                                ))}
 
                         </div>
                         <div className="flex flex-col gap-2 my-10">

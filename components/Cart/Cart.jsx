@@ -35,7 +35,7 @@ function Cart() {
             {/* neu show thi hien thi delete popup va truyen` prop xu ly close popup */}
         {show && <DelPopup isClose={handleClosePopup}  />}
         <div className="w-2/3 mx-auto grid grid-flow-row gap-6 max-lg:w-full">
-                <div className="bg-gray-100 px-20 flex flex-row justify-between pt-28 pb-16 uppercase">
+                <div className="max-sm:py-16 max-sm:pb-10 bg-gray-100 px-20 flex flex-row justify-between pt-28 pb-16 uppercase">
                     <p className="text-4xl">Cart</p>
                     <p className="text-xl opacity-50">Cart</p>
             </div>

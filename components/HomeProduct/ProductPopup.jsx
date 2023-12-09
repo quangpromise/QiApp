@@ -24,8 +24,8 @@ function ProductPopup({ onClose }) {
                     <h1 className="max-md:mt-8 text-2xl max-md:text-sm max-md:font-bold">{detailPopup.name}</h1>
                     <p className="text-md opacity-60 max-md:text-xs">{formattedCurrency.format(detailPopup.price)} VND</p>
                     <p className="text-sm opacity-40 max-md:text-xs">{detailPopup.short_desc}</p>
-                    <Link onClick={onClose} href={`/detail/${detailPopup._id.$oid}`} className="max-lg:w-1/3 w-2/4 bg-gray-700 text-white cursor-pointer px-2 hover:bg-opacity-80 py-2 max-md:mb-4">
-                        <button  className="flex gap-2  leading-5 mx-auto max-md:text-xs"><span><FaCartArrowDown /></span>View Detail</button>
+                    <Link onClick={onClose} href={`/detail/${detailPopup._id.$oid}`} className="max-sm:w-2/3 max-lg:w-1/3 w-2/4 bg-gray-700 text-white cursor-pointer px-2 hover:bg-opacity-80 py-2 max-md:mb-4">
+                        <button  className="flex gap-2 leading-4 max-md:leading-3 mx-auto max-md:text-xs"><span><FaCartArrowDown /></span>View Detail</button>
                     </Link>
                 </div>
             </div>

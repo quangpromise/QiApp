@@ -95,17 +95,17 @@ function HomeProductList() {
                         ))}
                     </div>
                 </div>
-                <div className=' max-md:px-0  max-lg:px-5 grid grid-flow-col justify-between bg-gray-100 px-28 py-20 max-sm:px-2'>
+                <div className='max-sm:gap-1  max-sm:px-2 max-md:px-0  max-lg:px-5 grid grid-flow-col justify-between bg-gray-100 px-28 py-20'>
                     <div>
-                        <h1 className='max-md:text-sm max-md:font-bold uppercase text-xl'>Free Shipping</h1>
+                        <h1 className='max-md:text-sm max-md:font-bold uppercase text-xl max-sm:text-xs'>Free Shipping</h1>
                         <p className='max-md:text-xs opacity-60'>Free shipping worldwide</p>
                     </div>
                      <div>
-                        <h1 className='max-md:text-sm max-md:font-bold uppercase text-xl'>24 x 7 service</h1>
+                        <h1 className='max-md:text-sm max-md:font-bold max-sm:text-xs uppercase text-xl'>24 x 7 service</h1>
                         <p className='max-md:text-xs opacity-60'>Free shipping worldwide</p>
                     </div>
                     <div>
-                        <h1 className='max-md:text-sm max-md:font-bold uppercase text-xl'>Festival offfer</h1>
+                        <h1 className='max-md:text-sm max-md:font-bold uppercase text-xl max-sm:text-xs'>Festival offfer</h1>
                         <p className='max-md:text-xs opacity-60'>Free shipping worldwide</p>
                     </div>
                 </div>

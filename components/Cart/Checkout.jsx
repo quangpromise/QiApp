@@ -110,8 +110,8 @@ function Checkout() {
             {checkoutSuccess ? <CheckoutSuccess /> :          
                 // hien thi check out screen
             <div className="w-2/3 mx-auto grid grid-flow-row gap-6 max-lg:w-full">
-                <div className="max-sm:py-20 max-sm:pb-10 bg-gray-100 px-20 flex flex-row justify-between pt-28 pb-16 uppercase">
-                    <p className="text-4xl max-md:text-lg max-md:font-bold max-sm:px-10 max-sm:-ml-20">Checkout</p>
+                <div className="max-sm:py-16 max-sm:pb-10 bg-gray-100 px-10 pr-4 flex flex-row justify-between pt-28 pb-16 uppercase">
+                    <div className="text-4xl max-md:text-lg max-md:font-bold max-sm:px-14 max-sm:-ml-20">Checkout</div>
                     <div className="text-xl uppercase flex gap-3 max-md:text-xs">
                         <Link href='/' className="hover:opacity-70">Home</Link>
                         <span>/</span>
