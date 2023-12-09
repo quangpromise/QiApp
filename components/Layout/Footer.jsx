@@ -2,10 +2,10 @@
 //tao component cho Footer
 function Footer() {
     return (
-        <div className="bg-black text-white italic mt-4 max-sm:px-5">
-            <div className="mx-auto w-2/3 py-12 max-sm:justify-between  max-sm:flex max-sm:flex-row grid grid-cols-3 gap-x-28 max-md:mx-0 max-md:flex">
+        <div className="bg-black text-white italic mt-4 max-md:px-10">
+            <div className="mx-auto w-2/3 max-sm:w-full py-12 max-sm:justify-between  max-sm:flex max-sm:flex-col max-sm:gap-4 max-sm:text-center grid grid-cols-3 gap-x-28 max-md:mx-0 max-md:flex">
                 <div className="flex-col">
-                    <h1 className="max-md:text-sm text-xl mb-5 uppercase max-sm:text-xs">Customer Services</h1>
+                    <h1 className="max-md:text-sm text-xl mb-5 max-sm:mb-2 uppercase max-sm:text-xs">Customer Services</h1>
                     <div className="flex-col text-sm max-md:text-xs  ">
                         <p className="mb-1 opacity-60 hover:opacity-100 ">
                             <a href='#'>Help & Contact Us</a>
@@ -22,7 +22,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="flex-col">
-                    <h1 className="max-md:text-sm text-xl mb-5 uppercase max-sm:text-xs">Company</h1>
+                    <h1 className="max-md:text-sm text-xl mb-5 uppercase max-sm:mb-2 max-sm:text-xs">Company</h1>
                     <div className="text-sm flex-col gap-4 max-md:text-xs">
                         <p className="mb-1 opacity-60 hover:opacity-100">
                             <a href='#'>What we Do</a>
@@ -39,7 +39,7 @@ function Footer() {
                     </div>
                 </div>
                 <div className="flex-col">
-                    <h1 className="max-md:text-sm text-xl mb-5 uppercase max-sm:text-xs">Social Media</h1>
+                    <h1 className="max-md:text-sm text-xl mb-5 uppercase max-sm:mb-2 max-sm:text-xs">Social Media</h1>
                     <div className="text-sm flex-col gap-4 max-md:text-xs">
                         <p className="mb-1 opacity-60 hover:opacity-100">
                             <a href='#'>Twitter</a>
