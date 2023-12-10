@@ -115,7 +115,7 @@ function HomeProductList() {
                         <p className='opacity-60'>Nisi nisi remport sonsequat iaboris nisi</p>
                     </div>
                     <form className='flex justify-end max-sm:mx-auto max-sm:mt-4'>
-                        <input type='email' className='max-sm:placeholder:text-xs py-3.5 pl-3 w-1/2 max-sm:w-40  border-2 border-gray-700' required placeholder='Enter your email adrress'/><span><button className='uppercase bg-gray-700 text-white text-center cursor-pointer hover:bg-opacity-80 p-4'>Subcribe</button></span>
+                        <input type='email' className='py-3.5 pl-3 w-1/2 max-sm:w-40  border-2 border-gray-700' required placeholder='Enter your email adrress'/><span><button className='uppercase bg-gray-700 text-white text-center cursor-pointer hover:bg-opacity-80 p-4'>Subcribe</button></span>
                     </form>
                 </div>
                 </div>
