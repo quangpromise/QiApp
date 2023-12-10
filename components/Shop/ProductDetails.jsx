@@ -5,6 +5,7 @@ import { fetchProduct } from "../store/action";
 import { formattedCurrency } from "../ultis/formattedCurrency";
 import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
+import { FaLongArrowAltLeft } from "react-icons/fa";
 import Link from "next/link";
 import { cartAction } from "../store/slice";
 
@@ -68,7 +69,8 @@ function ProductDetail() {
         <>
             {/* tao man hinh detail */}
             {productDetail &&
-                <div className="w-2/3 mx-auto pt-32 pb-10 grid gap-10 max-lg:w-full">
+                <div className="w-2/3 mx-auto pt-16 pb-4 grid gap-8 max-lg:w-full">
+
                     <div className="flex gap-6 max-lg:flex-col ">
                         <div className="flex w-1/2 max-lg:w-full max-lg:px-4">
                             <div className="w-1/5 animate-wave-ping">
