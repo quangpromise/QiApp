@@ -63,7 +63,7 @@ function Header() {
             <IoMenu className={`max-sm:mr-20 max-sm:text-4xl max-sm:cursor-pointer mx-auto hidden max-sm:block ${scrollY > 80 && 'text-white'}`} />
               <Link href='/cart'
                         // neu trang thai la highlight thi them animation cho cart button
-                        className={`${btnHighlighted ? `animate-wave-bump ` : ''}max-sm:mr-1 max-sm:flex  max-md:px-1 sm:text-left cursor-pointer leading-5 text-justify border-2 border-black rounded-xl -mt-1 py-2 mb-8 px-2 hidden gap-1 hover:scale-125 ${scrollY > 80 && 'text-white'}`}>
+                        className={`${btnHighlighted ? `animate-wave-bump ` : ''} max-sm:mr-1 max-sm:flex  max-md:px-1 sm:text-left cursor-pointer leading-5 text-justify border-2 border-black rounded-xl -mt-1 py-2 mb-8 px-2 hidden gap-1 hover:scale-125 ${scrollY > 80 && 'text-white'}`}>
                         <FaCartArrowDown className={`${scrollY > 80 ? 'text-white' : 'text-slate-500'}`} />
                         <p className=''>Cart <span className='bg-black  rounded-3xl text-md py-1 font-bold text-white not-italic  px-2'>{totalQuantity}</span></p></Link>  
                 </div>

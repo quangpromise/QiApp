@@ -109,13 +109,13 @@ function HomeProductList() {
                         <p className='max-md:text-xs opacity-60'>Free shipping worldwide</p>
                     </div>
                 </div>
-                <div className='grid grid-flow-col pb-16 pt-6 max-lg:px-5 max-sm:flex max-sm:flex-col max-sm:p-0 max-sm:pt-0 max-sm:text-center '>
+                <div className='max-sm:pt-0 max-sm:pb-8 grid grid-flow-col pb-16 pt-6 max-lg:px-5 max-sm:flex max-sm:flex-col max-sm:text-center '>
                     <div>
                         <h1 className='text-2xl uppercase '>Let be Friends!</h1>
                         <p className='opacity-60'>Nisi nisi remport sonsequat iaboris nisi</p>
                     </div>
                     <form className='flex justify-end max-sm:mx-auto max-sm:mt-4'>
-                        <input type='email' className='py-3.5 pl-3 w-1/2 max-sm:w-40  border-2 border-gray-700' required placeholder='Enter your email adrress'/><span><button className='uppercase bg-gray-700 text-white text-center cursor-pointer hover:bg-opacity-80 p-4'>Subcribe</button></span>
+                        <input type='email' className='max-sm:placeholder:text-xs py-3.5 pl-3 w-1/2 max-sm:w-40  border-2 border-gray-700' required placeholder='Enter your email adrress'/><span><button className='uppercase bg-gray-700 text-white text-center cursor-pointer hover:bg-opacity-80 p-4'>Subcribe</button></span>
                     </form>
                 </div>
                 </div>

@@ -49,10 +49,10 @@ function ShopSection() {
                     <div className="w-1/4 max-sm:w-full max">
                         <h1 className="text-2xl uppercase pb-4 max-md:font-bold max-md:text-sm max-sm:text-center">Categories</h1>
                         <div className="max-sm:flex max-sm:justify-between">
-                            <h1 className="max-md:text-sm uppercase max-sm:h-fit bg-black text-xl text-white py-2 px-4">Apple</h1>
+                            <h1 className="max-md:text-sm uppercase max-sm:h-fit bg-black text-xl text-white py-2 px-4 max-sm:px-2 max-sm:text-xs">Apple</h1>
                             <CategoryItem handleCategory={handleCategory} isActive='all' nameCategory='All' productList={products}></CategoryItem>
                             <div className="grid grid-flow-row group relative">
-                                <h1 className="max-md:text-sm uppercase text-xl bg-gray-100 py-2 px-4 max-sm:h-fit">Iphone & Mac</h1>
+                                <h1 className="max-sm:text-xs max-md:text-sm uppercase text-xl bg-gray-100 py-2 px-4 max-sm:h-fit">Iphone & Mac</h1>
                                 <div className="max-sm:hidden max-sm:group-hover:block">
                                     <CategoryItem handleCategory={handleCategory} isActive='iphone' nameCategory='Iphone' productList={iphoneList} />
                                     <CategoryItem handleCategory={handleCategory} isActive='ipad' nameCategory='Ipad' productList={ipadList} />
@@ -60,14 +60,14 @@ function ShopSection() {
                                 </div>
                             </div>
                             <div className="grid grid-flow-row group relative">
-                                <h1 className="max-md:text-sm uppercase text-xl  max-sm:h-fit bg-gray-100 py-2 px-4 ">Wireless</h1>
+                                <h1 className="max-sm:text-xs max-md:text-sm uppercase text-xl  max-sm:h-fit bg-gray-100 py-2 px-4 ">Wireless</h1>
                                 <div className="max-sm:hidden max-sm:group-hover:block">
                                     <CategoryItem handleCategory={handleCategory} isActive='airpod' nameCategory='Airpod' productList={airpodList} />
                                     <CategoryItem handleCategory={handleCategory} isActive='watch' nameCategory='Watch' productList={watchList} />
                                 </div>
                             </div>
                             <div className="grid grid-flow-row group relative">
-                                <h1 className="max-md:text-sm uppercase text-xl max-sm:h-fit bg-gray-100 py-2 px-4">Others</h1>
+                                <h1 className="max-sm:text-xs max-md:text-sm uppercase text-xl max-sm:h-fit bg-gray-100 py-2 px-4">Others</h1>
                                 <div className="max-sm:hidden max-sm:group-hover:block">
                                     <CategoryItem handleCategory={handleCategory} isActive='mouse' nameCategory='Mouse' productList={[]} />
                                     <CategoryItem handleCategory={handleCategory} isActive='keyboard' nameCategory='Keyboard' productList={[]} />
