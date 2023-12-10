@@ -4,7 +4,7 @@ import { IoMdArrowDropleft } from "react-icons/io";
 import { IoMdArrowDropright } from "react-icons/io";
 import { useDispatch } from "react-redux";
 import { cartAction } from "../store/slice";
-import Image from "next/image";
+import Link from "next/link";
 
 function CartItem(props) {
     //lay du lieu props tu Cart
@@ -32,9 +32,9 @@ function CartItem(props) {
 
         //hien thi item
         <div className="grid grid-cols-6 uppercase pt-8 text-center text-md py-4 ">
-            <p>
+            <Link href={`/detail/${id}`}>
                 <img src={image} width={10} height={10} alt="Image" className="w-20 " />
-            </p>
+            </Link>
             <p className="font-bold text-sm max-sm:text-xs">{name}</p>
             <p className="opacity-60 max-sm:text-xs">{formattedCurrency.format(price)} VND</p>
             <p className="flex mx-auto gap-2 mt-3 max-sm:gap-0 max-sm:mt-1"><IoMdArrowDropleft onClick={handleRemoveItem}
