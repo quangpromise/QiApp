@@ -69,7 +69,7 @@ function ProductDetail() {
         <>
             {/* tao man hinh detail */}
             {productDetail &&
-                <div className="w-2/3 mx-auto pt-16 pb-4 grid gap-8 max-lg:w-full">
+                <div className="w-2/3 mx-auto pt-20 pb-4 grid gap-8 max-lg:w-full">
 
                     <div className="flex gap-6 max-lg:flex-col ">
                         <div className="flex w-1/2 max-lg:w-full max-lg:px-4">
